@@ -1,0 +1,17 @@
+:root {
+    --background-color:#f4deb5;
+    --font-color: #e16c66;
+    --primary-color: #332929;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+
+}
+
