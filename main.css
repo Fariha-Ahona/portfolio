@@ -42,7 +42,7 @@ body {
     justify-content: space-between;
     align-items: center;
     /* width: 100%; */
-    padding: 0 20px;
+    padding: 0 40px;
     margin: 0 auto;
 
 
@@ -67,8 +67,9 @@ body {
 
 .about {
     width: 100%;
+    max-width: 75%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 auto;
     align-items: center;
 }
@@ -136,8 +137,10 @@ body {
     /* background: rgb(240, 202, 159); */
     background-color: linear-gradient(90deg, rgba(240, 202, 159, 1) 26%, rgba(225, 108, 102, 0.9500175070028011) 78%);
     width: 100%;
+    max-width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .mypic {
@@ -188,12 +191,13 @@ body {
 }
 
 .mydetail {
+    width: 500px;
     padding: 30px 20px;
 }
 
 .mydetail p {
     font-size: 18px;
-    text-align: center;
+    /* text-align: le; */
     /* padding: 40px 30px; */
 
 }
@@ -322,54 +326,56 @@ body {
     padding: 20px;
     color: var(--primary-color);
 }
-.cer-star{
+.carousel {
+    overflow: hidden;
     width: 100%;
     height: auto;
-    display: flex;
-    gap: 10px;
-    text-align: center;
-}
-.cer-star i{
-    font-size: 25px;
-    color: var(--font-color);
-    gap: 20px;
-}
-
-.certificates{
+    max-width: 600px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel-track {
     display: flex;
     aspect-ratio: 10/6;
-    overflow-x: auto;
-    scroll-snap-type: mandatory;
-    scroll-behavior: smooth;
-    box-shadow: 0 1.5sec 3rem -0.25sec hsla(0, 0%, 0%, 0.25);
-    border-radius: 20px;
-    overflow: hidden;
-}
-.certificates img{
-    flex: 1 0 100%;
-    scroll-snap-align: start;
-    border-radius: 20px;
-}
-.certificates-nav{
+    /*width: calc(100% * 4);  Adjust according to the number of items */
+    animation: scroll 20s linear infinite;
+  }
+  
+  .carousel-item {
+    flex: 1 0 100%; /* Each item takes up 100% of the carousel width */
     display: flex;
-    column-gap: 1rem;
-    position: absolute;
-    bottom: -1.01rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-.certificates-nav a{
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    opacity: 0.75;
-    transition: opacity ease 250ms;
-}
-.certificates-nav a :hover{
-    opacity: 1;
-}
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #fff;
+    border-right: 2px solid #ddd;
+  }
+  .carousel-item img{
+    width: 600px;
+    height: 380px;
+    border-radius: 20px;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    25% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(-200%);
+    }
+    75% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
 .testimonial-container{
     background-color: var(--primary-color);
     color: var(--background-color);
@@ -446,55 +452,6 @@ footer{
     gap: 14px;
 
 }
-.carousel {
-    overflow: hidden;
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    border: 2px solid #ddd;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .carousel-track {
-    display: flex;
-    aspect-ratio: 10/6;
-    /*width: calc(100% * 4);  Adjust according to the number of items */
-    animation: scroll 20s linear infinite;
-  }
-  
-  .carousel-item {
-    flex: 1 0 100%; /* Each item takes up 100% of the carousel width */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    background-color: #fff;
-    border-right: 2px solid #ddd;
-  }
-  .carousel-item img{
-    width: 600px;
-    height: 380px;
-    border-radius: 20px;
-  }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
-    }
-    25% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(-200%);
-    }
-    75% {
-      transform: translateX(-300%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
-  }
 
 @media only screen and  (min-width: 200px) and (max-width: 576px){
     .about-whole{
