@@ -22,10 +22,45 @@ body {
     color: var(--primary-color);
 }
 
+
 .nav2 ul {
     display: flex;
     gap: 15px;
 }
+/* Existing CSS */
+
+/* ... [Your existing CSS remains unchanged up to the modifications below] ... */
+
+/* 1. Navigation (.nav2) Hover Effects */
+.nav2 a {
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.nav2 a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav2 a:hover {
+    color: var(--font-color);
+}
+
+.nav2 a:hover::after {
+    width: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+}
+
+/* 2. Portnav Hover Effects */
 
 .header {
     background-color: var(--background-color);
@@ -130,7 +165,9 @@ body {
     display: inline-block;
     vertical-align: middle;
     text-align: center;
+    text-decoration: none ;
 }
+
 
 .about-me {
     /* margin: 0px 10px; */
@@ -236,6 +273,25 @@ body {
     text-transform: uppercase;
     cursor: pointer;
 }
+.portnav {
+    list-style: none;
+    color: var(--primary-color);
+    border: 3px inset var(--font-color);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.portnav:hover {
+    transform: translateY(-5px);
+    background-color: var(--font-color);
+    color: black;
+}
+
+
 .portnav:hover{
     transition: 0.5s ease-out var(--font-color);
 }
@@ -250,6 +306,10 @@ body {
     /* grid-template-columns: repeat(3, 1fr) ; */
     flex-wrap: wrap;
     gap: 30px;
+}
+.pro-project a{
+    text-decoration: none;
+
 }
 
 .project-card {
@@ -278,6 +338,7 @@ body {
     height: 50px;
     font-size: 1rem;
     border-radius: 20px;
+    text-decoration: none;
 }
 
 .text-card p {
@@ -452,6 +513,72 @@ footer{
     gap: 14px;
 
 }
+/* Dropdown menu styles */
+.contact-dropdown {
+    position: relative;
+}
+
+
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position it just below the "Contact Me" item */
+    left: 0;
+    background-color: var(--font-color); /* Dropdown background */
+    border-radius: 5px;
+    list-style: none;
+    padding: 0; /* Ensure no extra space is added */
+    margin: 0;
+    z-index: 100;
+    width: 150px;
+    text-align: center;
+    opacity: 0; /* Start with opacity 0 to ensure invisibility */
+    visibility: hidden; /* Ensure it's fully hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+
+
+.dropdown-menu li {
+    border-bottom: 1px solid var(--background-color); /* Line between items */
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: var(--background-color); /* Use --background-color for text */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--background-color); /* Highlight on hover */
+    color: var(--primary-color);
+}
+
+/* Show the dropdown menu on hover of the parent */
+.contact-dropdown:hover .dropdown-menu {
+    display: block; /* Show when hovered */
+    opacity: 1; /* Make it visible */
+    visibility: visible; /* Ensure it's visible */
+}
+
+/* Dropdown slide animation */
+@keyframes dropdown-slide {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @media only screen and  (min-width: 200px) and (max-width: 576px){
     .about-whole{
@@ -464,5 +591,16 @@ footer{
         gap: 20px;
 
     }
+    .dropdown-menu {
+        width: 100%; /* Full-width dropdown on small screens */
+        left: 0;
+        border-radius: 0;
+    }
+
+    .dropdown-menu a {
+        padding: 15px;
+        font-size: 16px;
+    }
+
     
 }
